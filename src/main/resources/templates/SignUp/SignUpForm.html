@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Coin Mock Invester</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+    </style>
+    <link rel="stylesheet" th:href="@{/CSS/SignUpForm.css}">
+</head>
+<body>
+<div class="name">
+    <a href="/">Coin Mock Invester</a>
+</div>
+
+<div class="mainSignUp">
+
+    <form action="/SignUpView" method="post" target="_blank">
+
+        <div class="joinRaw">
+            <h3 class="join_Title">
+                <label for="UserEmail">이메일</label>
+            </h3>
+            <span>
+                <input type="email" id="UserEmail" name="UserEmail" class="signUpForm">
+            </span>
+        </div>
+
+        <div class="joinRaw">
+            <h3 class="join_Title">
+                <label for="UserPassWord">비밀번호</label>
+            </h3>
+            <span>
+                <input type="password" id="UserPassword" name="UserPassword" class="signUpForm">
+            </span>
+            <h3 class="join_Title">
+                <label for="CheckUserPassword">비밀번호 확인</label>
+            </h3>
+            <span>
+                <input type="password" id="CheckUserPassword" name="CheckUserPassword" class="signUpForm">
+            </span>
+        </div>
+
+        <div class="joinGroup">
+
+            <div class="joinRaw">
+                <h3 class="join_Title">
+                    <label for="UserName">이름</label>
+                </h3>
+                <span>
+                    <input type="text" id="UserName" name="UserName" class="signUpForm">
+                </span>
+            </div>
+
+            <div class="birthday">
+                <h3 class="join_Title">
+                    <label for="yy">생년월일</label>
+                </h3>
+                <div class="bir_box">
+                    <div class="bir_year">
+                        <input type="text" id="yy" placeholder="년(4자)" name="UserBirYear" class="bir_input">
+                    </div>
+                    <div class="bir_month">
+                        <select id="mm" class="bir_input" name="UserBirMonth">
+                            <option value >월</option>
+                            <option value="01">1월</option>
+                            <option value="02">2월</option>
+                            <option value="03">3월</option>
+                            <option value="04">4월</option>
+                            <option value="05">5월</option>
+                            <option value="06">6월</option>
+                            <option value="07">7월</option>
+                            <option value="08">8월</option>
+                            <option value="09">9월</option>
+                            <option value="10">10월</option>
+                            <option value="11">11월</option>
+                            <option value="12">12월</option>
+                        </select>
+                    </div>
+                    <div class="bir_day">
+                        <label for="dd"></label>
+                        <input type="text" id="dd" placeholder="일" name="UserBirDay"  class="bir_input">
+                    </div>
+                </div>
+            </div>
+
+            <div class="joinRaw">
+                <h3 class="join_Title">
+                    <label for="UserGender">성별</label>
+                </h3>
+                <div >
+                    <select id="UserGender" name="UserGender" class="gender_input">
+                        <option value selected>성별</option>
+                        <option value="Male">남자</option>
+                        <option value="Female">여자</option>
+                        <option value="None">선택 안함</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        
+        <input type="submit" value="회원가입 하기" class="signupbtn">
+
+    </form>
+
+
+</div>
+
+</body>
+</html>

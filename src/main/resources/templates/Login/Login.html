@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+    </style>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/CSS/Login.css}">
+</head>
+<body>
+
+<div class="name">
+    <a href="/">Coin Mock Invester</a>
+</div>
+
+<div class="loginform">
+
+    <div>
+        <form action="/MainHomePage" method="POST" target="_blank">
+
+
+            <input type="email" class="loginfield" name="userEmail" placeholder="E-mail"><br><br>
+
+            <input type="password" class="loginfield" name="userPassword" placeholder="Password"><br><br>
+
+            <input type="submit" value="로그인" class="submitBtn">
+
+        </form>
+    </div>
+    <div>
+        <nav>
+            <ul class="loginetc">
+                <li class="etc">회원가입</li>
+                <li class="etc">아이디 찾기</li>
+                <li class="etc">비밀번호 찾기</li>
+            </ul>
+        </nav>
+    </div>
+
+
+</div>
+
+</body>
+</html>

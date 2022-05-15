@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <h1>내 지갑 정보 확인하기</h1>
+
+    <table>
+        <thead>
+        <tr>
+            <th>전체 거래 금액</th>
+            <th>전체 금액</th>
+            <th>보유 KRW</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- 단일 객체일 경우 -->
+        <tr th:object="${ BankDTO }">
+            <td th:text="*{TotalTradeAmount}"></td>
+            <td th:text="*{TotalMoney}"></td>
+            <td th:text="*{MyKRW}"></td>
+        </tr>
+        <!-- 리스트 객체일 경우 -->
+        <!-- blist 객체를 하나하나 꺼낼 경우 각각의 이름을 b라고 하겠다고 임의로 지정한다.-->
+        <tr th:each="b : ${ bList }">
+            <td th:text="${b.TotalTradeAmount}">1</td>
+            <td th:text="${b.TotalMoney}">1</td>
+            <td th:text="${b.MyKRW}">1</td>
+        </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>

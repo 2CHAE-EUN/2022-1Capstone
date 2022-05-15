@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+    </style>
+    <meta charset="UTF-8">
+    <title>Coin Mock Invester</title>
+    <link rel="stylesheet" th:href="@{/CSS/Index.css}">
+    <script>
+        var index = 0;   //이미지에 접근하는 인덱스
+            window.onload = function(){
+            slideShow();
+        }
+
+        function slideShow() {
+            var i;
+            var x = document.getElementsByClassName("photo1");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+        }
+
+        index++;
+        if (index > x.length) {
+            index = 1;  //인덱스가 초과되면 1로 변경
+        }
+        x[index-1].style.display = "block";
+        setTimeout(slideShow, 4000);   //함수를 4초마다 호출
+
+        }
+    </script>
+</head>
+<body>
+    <header class="menuheader">
+        <h1>coin mock invester</h1>
+        <nav>
+            <ul class="menu">
+                <li><a href="/Login" class="menu1">Login</a></li>
+                <li><a href="/SignUpForm"  class="menu1">Sign Up</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <div class="background">
+        <div class="photo1">
+            <img src="CSS/coin1.jpg" >
+        </div>
+        <div class="photo1">
+            <img src="CSS/coin2.jpg" >
+        </div>
+        <div class="photo1">
+            <img src="CSS/coin3.jpg">
+        </div>
+    </div>
+
+    <div class="introduce">
+        <h3>가상화폐 모의투자 서비스</h3>
+        <div class="contents">
+            입문자를 안내해 줄 다양한 가이드들을 효과적인 방식으로 제공하며,
+            <br>해당 가이드를 참고하며 동시에 모의투자를 진행할 수 있습니다.
+            <br>단순 현재 시세를 기반으로 진행되는 모의 투자 시스템에서
+            <br>한 단계 더 도약하여 실제 거래가 이루어지는 매커니즘대로
+            <br>더욱 현실적인 거래 경험을 체험할 수 있습니다.
+        </div>
+
+    </div>
+
+
+</body>
+</html>
