@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.capstone.mapper.SignUpMapper">
+<mapper namespace="com.capstone.mapper.UserMapper">
+    <!-- 로그인 -->
+    <select id="getUserAccount" resultType="UserDTO">
+        SELECT * FROM COINUSER
+        WHERE userEmail = #{userEmail}
+    </select>
+
+    <!-- 회원가입 -->
     <insert id="insertMember" parameterType="UserDTO">
         INSERT INTO COINUSER (
         userEmail,
@@ -10,15 +17,17 @@
         userBirth,
         userGender,
         userSignUpDate,
-        userTotalSeed )
+        userTotalSeed,
+        userAuth)
         VALUES (
-        #{UserEmail},
-        #{UserPassword},
-        #{UserName},
-        CONCAT(#{UserBirYear},'-',#{UserBirMonth},'-',#{UserBirDay}),
-        #{UserGender},
+        #{userEmail},
+        #{userPassword},
+        #{userName},
+        CONCAT(#{userBirYear},'-',#{userBirMonth},'-',#{userBirDay}),
+        #{userGender},
         CURDATE(),
-        0
+        0,
+        #{userAuth}
         );
     </insert>
 </mapper>

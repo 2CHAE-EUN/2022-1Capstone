@@ -1,86 +1,152 @@
 package com.capstone.DTO;
 
-public class UserDTO {
+import lombok.Data;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
-    private String UserEmail;
-    private String UserPassword;
-    private String UserName;
-    private String UserBirYear;
-    private String UserBirMonth;
-    private String UserBirDay;
-    private String UserGender;
-    private String UserSignUpDate;
-    private String UserTotalSeed;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
+public class UserDTO implements UserDetails {
+
+    private int num;
+    private String userEmail;
+    private String userPassword;
+    private String userName;
+    private String userBirYear;
+    private String userBirMonth;
+    private String userBirDay;
+    private String userGender;
+    private String userSignUpDate;
+    private String userTotalSeed;
+    private String userAuth;
+
+
+    public int getNum() {
+        return num;
+    }
+
+    public void setNum(int num) {
+        this.num = num;
+    }
 
     public String getUserEmail() {
-        return UserEmail;
+        return userEmail;
     }
 
     public void setUserEmail(String userEmail) {
-        UserEmail = userEmail;
+        this.userEmail = userEmail;
     }
 
     public String getUserPassword() {
-        return UserPassword;
+        return userPassword;
     }
 
     public void setUserPassword(String userPassword) {
-        UserPassword = userPassword;
+        this.userPassword = userPassword;
     }
 
     public String getUserName() {
-        return UserName;
+        return userName;
     }
 
     public void setUserName(String userName) {
-        UserName = userName;
+        this.userName = userName;
     }
 
     public String getUserBirYear() {
-        return UserBirYear;
+        return userBirYear;
     }
 
     public void setUserBirYear(String userBirYear) {
-        UserBirYear = userBirYear;
+        this.userBirYear = userBirYear;
     }
 
     public String getUserBirMonth() {
-        return UserBirMonth;
+        return userBirMonth;
     }
 
     public void setUserBirMonth(String userBirMonth) {
-        UserBirMonth = userBirMonth;
+        this.userBirMonth = userBirMonth;
     }
 
     public String getUserBirDay() {
-        return UserBirDay;
+        return userBirDay;
     }
 
     public void setUserBirDay(String userBirDay) {
-        UserBirDay = userBirDay;
+        this.userBirDay = userBirDay;
     }
 
     public String getUserGender() {
-        return UserGender;
+        return userGender;
     }
 
     public void setUserGender(String userGender) {
-        UserGender = userGender;
+        this.userGender = userGender;
     }
 
     public String getUserSignUpDate() {
-        return UserSignUpDate;
+        return userSignUpDate;
     }
 
     public void setUserSignUpDate(String userSignUpDate) {
-        UserSignUpDate = userSignUpDate;
+        this.userSignUpDate = userSignUpDate;
     }
 
     public String getUserTotalSeed() {
-        return UserTotalSeed;
+        return userTotalSeed;
     }
 
     public void setUserTotalSeed(String userTotalSeed) {
-        UserTotalSeed = userTotalSeed;
+        this.userTotalSeed = userTotalSeed;
+    }
+
+    public String getUserAuth() {
+        return userAuth;
+    }
+
+    public void setUserAuth(String userAuth) {
+        this.userAuth = userAuth;
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        List<GrantedAuthority> authorities = new ArrayList<>();
+        authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
+
+        return authorities;
+    }
+
+    @Override
+    public String getPassword() {
+        return this.userPassword;
+    }
+
+    @Override
+    public String getUsername() {
+        return this.userName;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
     }
 }

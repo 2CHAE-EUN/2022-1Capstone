@@ -17,7 +17,7 @@ import org.springframework.context.annotation.PropertySource;
 import javax.sql.DataSource;
 
 @Configuration
-@PropertySource("classpath:/application.properties") // /는 src/main/resources를 의미한다.
+@PropertySource("classpath:/application.yml") // /는 src/main/resources를 의미한다.
 public class DBConfiguration {
 
     @Autowired

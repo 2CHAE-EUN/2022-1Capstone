@@ -2,7 +2,7 @@ package com.capstone;
 
 import com.capstone.DTO.UserDTO;
 
-import com.capstone.mapper.SignUpMapper;
+import com.capstone.mapper.UserMapper;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 public class Usertest {
     @Autowired
-    private SignUpMapper signUpMapper;
+    private UserMapper userMapper;
 
     @Test
     public void testInsert(){
@@ -22,6 +22,6 @@ public class Usertest {
         u1.setUserPassword("1234");
 
         System.out.println(u1);
-        signUpMapper.insertMember(u1);
+        userMapper.insertMember(u1);
     }
 }

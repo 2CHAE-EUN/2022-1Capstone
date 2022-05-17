@@ -1,23 +1,15 @@
 package com.capstone.DTO;
 
+import lombok.*;
+
+import javax.validation.constraints.NotNull;
+
 public class LoginDTO {
 
+    @NotNull
     private String userEmail;
+
+    @NotNull
     private String userPassword;
 
-    public String getUserEmail() {
-        return userEmail;
-    }
-
-    public void setUserEmail(String userEmail) {
-        this.userEmail = userEmail;
-    }
-
-    public String getUserPassword() {
-        return userPassword;
-    }
-
-    public void setUserPassword(String userPassword) {
-        this.userPassword = userPassword;
-    }
 }
