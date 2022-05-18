@@ -22,7 +22,7 @@ public class UserDTO implements UserDetails {
     private String userSignUpDate;
     private String userTotalSeed;
     private String userAuth;
-
+    
 
     public int getNum() {
         return num;
@@ -111,6 +111,7 @@ public class UserDTO implements UserDetails {
     public void setUserAuth(String userAuth) {
         this.userAuth = userAuth;
     }
+
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

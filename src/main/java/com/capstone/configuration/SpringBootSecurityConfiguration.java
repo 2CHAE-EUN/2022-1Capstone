@@ -27,6 +27,7 @@ public class SpringBootSecurityConfiguration extends WebSecurityConfigurerAdapte
                 .authorizeRequests() // 요청에 의한 보안 검사 시작
                 .antMatchers("/", "/SignUpForm").permitAll()
                 .antMatchers("/MainHomePage").hasRole("USER") // 권한이 있기만 하다면 접근 가능
+                .antMatchers("/UserData").hasRole("USER")
                 .and()
                 .httpBasic().disable()
                 .formLogin()
@@ -35,8 +36,13 @@ public class SpringBootSecurityConfiguration extends WebSecurityConfigurerAdapte
                     .passwordParameter("userPassword")
                     .loginProcessingUrl("/MainHomePage")
                     .defaultSuccessUrl("/MainHomePage") // 로그인 성공시 제공할 페이지
-                    .failureUrl("/Temp") // 로그인 실패 시 제공할 페이지
-                    .permitAll(); // 로그인 폼은 누구나 접근이 가능
+                    .failureUrl("/FailLogin") // 로그인 실패 시 제공할 페이지
+                    .permitAll() // 로그인 폼은 누구나 접근이 가능
+                .and()
+                    .logout()
+                        .logoutUrl("/Logout") // 로그아웃 경로
+                        .logoutSuccessUrl("/") // 로그아웃시 연결되는 주소
+                        .invalidateHttpSession(true).deleteCookies("JSESSIONID", "remember-me"); // 로그아웃 시 저장해 둔 세션 날리기
     }
 
     @Override

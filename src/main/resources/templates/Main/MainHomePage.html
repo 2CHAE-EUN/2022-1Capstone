@@ -1,10 +1,53 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" >
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+    </style>
+    <title>Document</title>
+    <link rel="stylesheet" th:href="@{/CSS/MainHomePage.css}">
 </head>
 <body>
-    <h1>가상화폐 모의투자 서비스입니다!</h1>
+
+<header class="menuheader">
+    <h1>coin mock invester</h1>
+    <nav class="coinmenu">
+        <a href="/MainHomePage" class="coinmenudetail">거래소</a>
+        <a href="/" class="coinmenudetail">입출금</a>
+        <a href="/" class="coinmenudetail">투자내역</a>
+    </nav>
+    <ul class="mymenu">
+        <li><a href="/UserData" class="menudetail">MY</a></li>
+        <li><a href="/Logout" class="menudetail">LOGOUT</a></li>
+    </ul>
+</header>
+
+
+<div class="allmenu">
+    <section class="showA">
+        <article class="charts">
+            <h2 th:text="${username}">...</h2>
+        </article>
+        <div class="transaction">
+            <div class="coinitem">
+                호가 목록
+            </div>
+            <div class="sellAndBuy">
+                매도 매수
+            </div>
+        </div>
+    </section>
+    <section class="showB">
+        <h1>코인 목록</h1>
+        <article class="search">
+
+        </article>
+    </section>
+
+
+</div>
+
+
 </body>
 </html>

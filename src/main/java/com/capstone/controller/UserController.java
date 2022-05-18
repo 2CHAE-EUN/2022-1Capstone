@@ -2,14 +2,13 @@ package com.capstone.controller;
 
 import com.capstone.DTO.UserDTO;
 import com.capstone.Service.UserService;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 
 @Controller
-@RequiredArgsConstructor
 public class UserController {
 
     @Autowired
@@ -20,9 +19,10 @@ public class UserController {
         return "/Login/Login";
     }
 
-    @GetMapping("/Temp")
-    public String TempPage(){
-        return "/Login/Temp";
+    @GetMapping("/FailLogin")
+    public String failLogin(Model model){
+        model.addAttribute("msg","Login or Password is inVaild");
+        return "/Login/FailLogin";
     }
 
     // 회원가입 폼
