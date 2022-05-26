@@ -27,7 +27,7 @@ public class SpringBootSecurityConfiguration extends WebSecurityConfigurerAdapte
                 .authorizeRequests() // 요청에 의한 보안 검사 시작
                 .antMatchers("/", "/SignUpForm").permitAll()
                 .antMatchers("/MainHomePage").hasRole("USER") // 권한이 있기만 하다면 접근 가능
-                .antMatchers("/UserData").hasRole("USER")
+                .antMatchers("/Investment").hasRole("USER")
                 .and()
                 .httpBasic().disable()
                 .formLogin()

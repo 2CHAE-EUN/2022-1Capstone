@@ -5,12 +5,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
-public class UserDataController {
+public class InvestmentController {
 
-    @GetMapping("/UserData")
-    public String checkMyInform(){
-        //사용자가 MainHomePage으로 들어오면 MainHomePage을 반환해준다.
-        return "/UserInfo/UserData";
+    @GetMapping("/Investment")
+    public String checkMyInvestment(){
+        return "/Investment/Investment";
     }
 
 }

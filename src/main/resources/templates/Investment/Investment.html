@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Coin Mock Invester</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+    </style>
+    <link rel="stylesheet" th:href="@{/CSS/Investment.css}">
+</head>
+<body>
+
+<header class="menuheader">
+    <h1>coin mock invester</h1>
+    <nav class="coinmenu">
+        <a href="/MainHomePage" class="coinmenudetail">거래소</a>
+        <a href="/Investment" class="coinmenudetail">투자내역</a>
+    </nav>
+    <ul class="mymenu">
+        <li><a href="/" class="menudetail">MY</a></li>
+        <li><a href="/Logout" class="menudetail">LOGOUT</a></li>
+    </ul>
+</header>
+
+
+<div class="myInvestment">
+    <div class="total">
+        <div class="myAsset" >
+            <dl class="totalTradeAmount">
+                <dt>보유 시드</dt>
+                <dd>
+                        <span >
+
+                        </span>
+                </dd>
+            </dl>
+            <dl class="totalTradeAmount">
+                <dt>총 보유 자산</dt>
+                <dd>
+                        <span >
+
+                        </span>
+                </dd>
+            </dl>
+            <dl class="tradeAmount">
+                <dt>총 매수 금액</dt>
+                <dd>
+                        <span >
+
+                        </span>
+                </dd>
+            </dl>
+            <dl class="tradeAmount">
+                <dt>총 평가 손익</dt>
+                <dd>
+                        <span>
+
+                        </span>
+                </dd>
+            </dl>
+            <dl class="tradeAmount">
+                <dt>총 평가 금액</dt>
+                <dd>
+                        <span >
+
+                        </span>
+                </dd>
+            </dl>
+            <dl class="tradeAmount">
+                <dt>총 평가 수익률</dt>
+                <dd>
+                        <span>
+
+                        </span>
+                </dd>
+            </dl>
+        </div>
+
+        <div class="myAssetList">
+            <div class="myAssetListText">보유 자산 목록</div>
+            <div class="content">
+                <table>
+                    <thead>
+                    <th>보유자산</th>
+                    <th>보유수량</th>
+                    <th>매수평균가</th>
+                    <th>매수금액</th>
+                    <th>평가금액</th>
+                    <th>평가손익</th>
+                    <th>평가수익률</th>
+                    </thead>
+                    <tbody>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="coinlist">
+
+    </div>
+
+</div>
+
+</body>
+</html>

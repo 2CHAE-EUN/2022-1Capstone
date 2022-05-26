@@ -20,9 +20,8 @@ public class UserDTO implements UserDetails {
     private String userBirDay;
     private String userGender;
     private String userSignUpDate;
-    private String userTotalSeed;
     private String userAuth;
-    
+
 
     public int getNum() {
         return num;
@@ -94,14 +93,6 @@ public class UserDTO implements UserDetails {
 
     public void setUserSignUpDate(String userSignUpDate) {
         this.userSignUpDate = userSignUpDate;
-    }
-
-    public String getUserTotalSeed() {
-        return userTotalSeed;
-    }
-
-    public void setUserTotalSeed(String userTotalSeed) {
-        this.userTotalSeed = userTotalSeed;
     }
 
     public String getUserAuth() {

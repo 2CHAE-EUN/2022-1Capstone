@@ -13,8 +13,8 @@ spring:
     prefix: classpath:templates/
     suffix: .html
     cache: false
-    mode: HTML
     check-template-location : true
+
 
   datasource.hikari:
     driver-class-name: com.mysql.cj.jdbc.Driver

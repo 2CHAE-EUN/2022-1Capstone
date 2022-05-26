@@ -1,7 +1,10 @@
 package com.capstone.Service;
 
+import com.capstone.DTO.AssetDTO;
 import com.capstone.DTO.UserDTO;
+import com.capstone.DTO.WalletDTO;
 import com.capstone.mapper.UserMapper;
+import com.capstone.mapper.WalletMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -22,6 +25,9 @@ public class UserService implements UserDetailsService {
     @Autowired
     UserMapper userMapper;
 
+    @Autowired
+    WalletMapper walletMapper;
+
     @Transactional
     public void joinUser(UserDTO userDTO){
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
@@ -39,5 +45,19 @@ public class UserService implements UserDetailsService {
         }
         return userDTO;
     }
+
+    public void createWallet(WalletDTO walletDTO, UserDTO userDTO){
+        walletDTO.setNum(userDTO.getNum());
+
+        walletMapper.createWallet(walletDTO);
+    }
+
+
+    public void createAsset(AssetDTO assetDTO, UserDTO userDTO){
+        assetDTO.setNum(userDTO.getNum());
+
+        walletMapper.createAsset(assetDTO);
+    }
+
 
 }

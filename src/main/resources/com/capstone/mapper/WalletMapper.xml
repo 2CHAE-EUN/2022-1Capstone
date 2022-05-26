@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.capstone.mapper.WalletMapper">
+    <!-- 지갑 생성 -->
+    <insert id="createWallet" parameterType="WalletDTO">
+        INSERT INTO wallet (
+        num,
+        coinCode,
+        coinCount,
+        averageBuyPrice,
+        buyPrice,
+        resultPrice,
+        resultPL,
+        profitRate)
+        VALUES (
+        #{num},
+        #{coinCode},
+        #{coinCount},
+        #{averageBuyPrice},
+        #{buyPrice},
+        #{resultPrice},
+        #{resultPL},
+        #{profitRate}
+        );
+    </insert>
+
+    <!-- 자산 목록 생성 -->
+    <insert id="createAsset" parameterType="AssetDTO">
+        INSERT INTO asset (
+        num,
+        userSeed,
+        userTotalSeed,
+        totalBuyPrice,
+        totalValuePrice,
+        totalValuePL,
+        totalValueRate
+        )
+        VALUES (
+        #{num},
+        #{userSeed},
+        #{userTotalSeed},
+        #{totalBuyPrice},
+        #{totalValuePrice},
+        #{totalValuePL},
+        #{totalValueRate}
+        );
+    </insert>
+
+    <!-- 자산 목록 조회하기 -->
+
+
+</mapper>

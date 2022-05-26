@@ -1,6 +1,8 @@
 package com.capstone.controller;
 
+import com.capstone.DTO.AssetDTO;
 import com.capstone.DTO.UserDTO;
+import com.capstone.DTO.WalletDTO;
 import com.capstone.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -35,8 +37,10 @@ public class UserController {
     //SignUpForm에서 Post 방식으로 요청이 들어온다면 해당 페이지 반환하기
     //회원가입 진행
     @PostMapping("/SignUpView")
-    public String signUp(UserDTO userDTO) {
+    public String signUp(UserDTO userDTO, AssetDTO assetDTO, WalletDTO walletDTO) {
         userService.joinUser(userDTO);
+//        userService.createAsset(assetDTO, userDTO);
+//        userService.createWallet(walletDTO,userDTO);
         return "/SignUp/SignUpView";
     }
 
