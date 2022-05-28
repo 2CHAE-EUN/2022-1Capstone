@@ -46,16 +46,25 @@ public class UserService implements UserDetailsService {
         return userDTO;
     }
 
-    public void createWallet(WalletDTO walletDTO, UserDTO userDTO){
-        walletDTO.setNum(userDTO.getNum());
-
+    public void createWallet(WalletDTO walletDTO){
+        walletDTO.setCoinCode("");
+        walletDTO.setCoinCount(0);
+        walletDTO.setAverageBuyPrice(0);
+        walletDTO.setBuyPrice(0);
+        walletDTO.setResultPrice(0);
+        walletDTO.setResultPL(0);
+        walletDTO.setProfitRate(0.0);
         walletMapper.createWallet(walletDTO);
     }
 
 
-    public void createAsset(AssetDTO assetDTO, UserDTO userDTO){
-        assetDTO.setNum(userDTO.getNum());
-
+    public void createAsset(AssetDTO assetDTO){
+        assetDTO.setUserSeed(0);
+        assetDTO.setUserTotalSeed(0);
+        assetDTO.setUserTotalSeed(0);
+        assetDTO.setTotalValuePrice(0);
+        assetDTO.setTotalValuePL(0);
+        assetDTO.setTotalValueRate(0.0);
         walletMapper.createAsset(assetDTO);
     }
 

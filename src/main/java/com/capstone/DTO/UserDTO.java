@@ -1,6 +1,5 @@
 package com.capstone.DTO;
 
-import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -21,7 +20,6 @@ public class UserDTO implements UserDetails {
     private String userGender;
     private String userSignUpDate;
     private String userAuth;
-
 
     public int getNum() {
         return num;

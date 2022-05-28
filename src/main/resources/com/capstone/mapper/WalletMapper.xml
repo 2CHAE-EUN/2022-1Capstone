@@ -3,7 +3,10 @@
 
 <mapper namespace="com.capstone.mapper.WalletMapper">
     <!-- 지갑 생성 -->
-    <insert id="createWallet" parameterType="WalletDTO">
+    <insert id="createWallet" parameterType="WalletDTO" >
+        <selectKey keyProperty="num" resultType="int">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
         INSERT INTO wallet (
         num,
         coinCode,
@@ -27,6 +30,9 @@
 
     <!-- 자산 목록 생성 -->
     <insert id="createAsset" parameterType="AssetDTO">
+        <selectKey keyProperty="num" resultType="int">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
         INSERT INTO asset (
         num,
         userSeed,

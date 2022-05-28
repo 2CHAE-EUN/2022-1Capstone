@@ -39,10 +39,18 @@ public class UserController {
     @PostMapping("/SignUpView")
     public String signUp(UserDTO userDTO, AssetDTO assetDTO, WalletDTO walletDTO) {
         userService.joinUser(userDTO);
-//        userService.createAsset(assetDTO, userDTO);
-//        userService.createWallet(walletDTO,userDTO);
+
+        walletDTO.setNum(userDTO.getNum());
+        assetDTO.setNum(userDTO.getNum());
+
+        userService.createAsset(assetDTO);
+        userService.createWallet(walletDTO);
+
         return "/SignUp/SignUpView";
     }
+
+
+
 
 }
 

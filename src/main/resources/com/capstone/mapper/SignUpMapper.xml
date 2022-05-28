@@ -9,7 +9,7 @@
     </select>
 
     <!-- 회원가입 -->
-    <insert id="insertMember" parameterType="UserDTO">
+    <insert id="insertMember" parameterType="UserDTO" useGeneratedKeys="true" keyProperty="num" keyColumn="num">
         INSERT INTO COINUSER (
         userEmail,
         userPassword,
