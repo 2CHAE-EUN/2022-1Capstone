@@ -1,5 +1,12 @@
 package com.capstone.DTO;
 
+
+import lombok.Data;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
+
+@Data
+@Component
 public class AssetDTO {
 
     private int num;
@@ -9,6 +16,8 @@ public class AssetDTO {
     private int totalValuePrice;
     private int totalValuePL;
     private double totalValueRate;
+
+    private UserDTO userDTO;
 
     public int getNum() {
         return num;

@@ -5,6 +5,8 @@ import com.capstone.DTO.UserDTO;
 import com.capstone.DTO.WalletDTO;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 @Mapper
 public interface UserMapper {
 
@@ -13,5 +15,9 @@ public interface UserMapper {
 
     // 회원가입
     public void insertMember(UserDTO userDTO);
+
+    // 회원가입 중복
+    public int emailCheck(String email);
+
 
 }

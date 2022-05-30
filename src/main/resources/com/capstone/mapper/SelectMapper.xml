@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.capstone.mapper.SelectMapper">
+
+<!--    <resultMap id="UserMap" type="com.capstone.DTO.UserDTO">-->
+<!--        <id property="num" column="num"/>-->
+<!--        <result property="userEmail" column="userEmail"/>-->
+<!--        <result property="userPassword" column="userPassword"/>-->
+<!--        <result property="userName" column="userName"/>-->
+<!--        <result property="userBirth" column="userBirth"/>-->
+<!--        <result property="userSignUpDate" column="userSignUpDate"/>-->
+<!--        <result property="userAuth" column="userAuth"/>-->
+<!--        <collection property="assetList" column="userSeed" select="selectMyAsset"/>-->
+<!--    </resultMap>-->
+
+<!--    <select id="selectMyAsset" resultType="string">-->
+<!--        select userSeed from asset where num = #{num}-->
+<!--    </select>-->
+
+<!--    <select id="selectAsset" resultMap="UserMap">-->
+<!--        select * from coinuser;-->
+<!--    </select>-->
+
+    <select id="getWalletList" resultType="WalletDTO" parameterType="com.capstone.DTO.UserDTO">
+        select * from wallet
+        where num = #{num}
+    </select>
+</mapper>

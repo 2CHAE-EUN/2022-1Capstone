@@ -30,7 +30,7 @@ public class UserController {
     // 회원가입 폼
     @GetMapping("/SignUpForm")
     public String signUpForm(){
-    //사용자가 SignUpForm으로 들어오면 SignUpForm을 반환해준다.
+        //사용자가 SignUpForm으로 들어오면 SignUpForm을 반환해준다.
         return "/SignUp/SignUpForm";
     }
 
@@ -53,6 +53,5 @@ public class UserController {
 
 
 }
-
 
 

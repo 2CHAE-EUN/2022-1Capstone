@@ -1,13 +1,18 @@
 package com.capstone.DTO;
 
+import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+@Data
+@Component
 public class UserDTO implements UserDetails {
 
     private int num;
@@ -17,9 +22,12 @@ public class UserDTO implements UserDetails {
     private String userBirYear;
     private String userBirMonth;
     private String userBirDay;
+    private String userBirth;
     private String userGender;
     private String userSignUpDate;
     private String userAuth;
+
+    private List<String> assetList;
 
     public int getNum() {
         return num;
@@ -75,6 +83,14 @@ public class UserDTO implements UserDetails {
 
     public void setUserBirDay(String userBirDay) {
         this.userBirDay = userBirDay;
+    }
+
+    public String getUserBirth() {
+        return userBirth;
+    }
+
+    public void setUserBirth(String userBirth) {
+        this.userBirth = userBirth;
     }
 
     public String getUserGender() {

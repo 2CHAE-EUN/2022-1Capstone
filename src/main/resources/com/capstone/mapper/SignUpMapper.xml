@@ -22,10 +22,20 @@
         #{userEmail},
         #{userPassword},
         #{userName},
-        CONCAT(#{userBirYear},'-',#{userBirMonth},'-',#{userBirDay}),
+        #{userBirth},
         #{userGender},
         CURDATE(),
         #{userAuth}
         );
     </insert>
+
+    <!--회원가입 중복-->
+    <!--중복이면 1리턴, 중복이 아니면 0리턴-->
+    <select id="emailCheck" parameterType="String" resultType="int">
+        SELECT COUNT(*) FROM COINUSER WHERE userEmail = #{userEmail};
+    </select>
+
+
+
+
 </mapper>

@@ -5,10 +5,7 @@ import com.capstone.DTO.UserDTO;
 import com.capstone.DTO.WalletDTO;
 import com.capstone.mapper.UserMapper;
 import com.capstone.mapper.WalletMapper;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -16,7 +13,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -32,6 +28,7 @@ public class UserService implements UserDetailsService {
     public void joinUser(UserDTO userDTO){
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         userDTO.setUserPassword(passwordEncoder.encode(userDTO.getUserPassword()));
+        userDTO.setUserBirth(userDTO.getUserBirYear() + "-" + userDTO.getUserBirMonth() + "-" + userDTO.getUserBirDay() );
         userDTO.setUserAuth("ROLE_USER");
         userMapper.insertMember(userDTO);
     }
@@ -59,7 +56,7 @@ public class UserService implements UserDetailsService {
 
 
     public void createAsset(AssetDTO assetDTO){
-        assetDTO.setUserSeed(0);
+        assetDTO.setUserSeed(10000000);
         assetDTO.setUserTotalSeed(0);
         assetDTO.setUserTotalSeed(0);
         assetDTO.setTotalValuePrice(0);
@@ -67,6 +64,5 @@ public class UserService implements UserDetailsService {
         assetDTO.setTotalValueRate(0.0);
         walletMapper.createAsset(assetDTO);
     }
-
 
 }

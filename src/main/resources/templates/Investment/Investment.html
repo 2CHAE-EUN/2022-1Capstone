@@ -25,7 +25,7 @@
 
 <div class="myInvestment">
     <div class="total">
-        <div class="myAsset" >
+        <div class="myAsset"  >
             <dl class="totalTradeAmount">
                 <dt>보유 시드</dt>
                 <dd>
@@ -90,12 +90,15 @@
                     <th>평가수익률</th>
                     </thead>
                     <tbody>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <tr th:each="b : ${wallet}">
+                        <td th:text="${b.coinCode}"></td>
+                        <td th:text="${b.coinCount}"></td>
+                        <td th:text="${b.averageBuyPrice}"></td>
+                        <td th:text="${b.buyPrice}"></td>
+                        <td th:text="${b.resultPrice}"></td>
+                        <td th:text="${b.resultPL}"></td>
+                        <td th:text="${b.profitRate}"></td>
+                    </tr>
                     </tbody>
                 </table>
             </div>
