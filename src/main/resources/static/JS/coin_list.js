@@ -29,29 +29,9 @@ function connectWS() {
 
 		if(coinData.type == "ticker") { // 현재가 데이터
 
-			console.log(coinData.code);
+//			console.log(coinData.code);
 
 			if ( coinData.code == "KRW-BTC" ){
-
-				document.getElementById("tp").innerHTML = coinData.trade_price+"KRW";
-
-				if(coinData.signed_change_rate >= 0 ){
-					document.getElementById("scr").innerHTML = "+" + (coinData.signed_change_rate  * 100).toPrecision(2) + "%";
-					document.getElementById("srp").innerHTML = "▲ " +  coinData.signed_change_price;
-					document.getElementById("scr").style.color = "red";
-					document.getElementById("srp").style.color = "red";
-
-				}else{
-					document.getElementById("scr").innerHTML = (coinData.signed_change_rate  * 100).toPrecision(2) + "%";
-					document.getElementById("srp").innerHTML = "▼ " +  coinData.signed_change_price;
-					document.getElementById("scr").style.color = "blue";
-					document.getElementById("srp").style.color = "blue";
-				}
-
-				document.getElementById("hp").innerHTML = coinData.high_price;
-				document.getElementById("lp").innerHTML = coinData.low_price;
-				document.getElementById("atv24h").innerHTML = (coinData.acc_trade_volume_24h).toPrecision(7) + " BTC";
-				document.getElementById("atp24h").innerHTML = Math.round(coinData.acc_trade_price_24h) + " KRW";
 
 				document.getElementById("KRW-BTC").getElementsByTagName('td')[1].innerHTML = coinData.trade_price;
 				document.getElementById("KRW-BTC").getElementsByTagName('td')[2].innerHTML = (coinData.signed_change_rate  * 100).toPrecision(2) + "%";
@@ -152,22 +132,22 @@ function connectWS() {
 		}
 		if(coinData.type == "trade") { // 체결 데이터
 
-			var table = document.getElementById('tradeTable');
-			var tr = document.createElement("tr");
-			var td1 = document.createElement("td");
-			td1.appendChild(document.createTextNode(coinData.trade_date + " " + coinData.trade_time));
-
-			var td2 = document.createElement("td");
-			td2.appendChild(document.createTextNode(coinData.trade_price));
-
-			var td3 = document.createElement("td");
-			td3.appendChild(document.createTextNode(coinData.trade_volume));
-
-			tr.appendChild(td1);
-	      	tr.appendChild(td2);
-	      	tr.appendChild(td3);
-
-			table.appendChild(tr);
+//			var table = document.getElementById('tradeTable');
+//			var tr = document.createElement("tr");
+//			var td1 = document.createElement("td");
+//			td1.appendChild(document.createTextNode(coinData.trade_date + " " + coinData.trade_time));
+//
+//			var td2 = document.createElement("td");
+//			td2.appendChild(document.createTextNode(coinData.trade_price));
+//
+//			var td3 = document.createElement("td");
+//			td3.appendChild(document.createTextNode(coinData.trade_volume));
+//
+//			tr.appendChild(td1);
+//	      	tr.appendChild(td2);
+//	      	tr.appendChild(td3);
+//
+//			table.prepend(tr);
 		}
 	}
 }

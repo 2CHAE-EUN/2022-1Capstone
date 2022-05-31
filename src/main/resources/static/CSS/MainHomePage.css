@@ -215,12 +215,26 @@ a{
     display: inline-block;
 }
 
+.content-dis{
+    max-height: 300px;
+}
+
+.content div{
+    padding: 30px;
+    font-size: 20px;
+ }
+
 .sellAndBuy input[type=radio]{
     display: none;
 }
 
+.content-dis input[type=radio]{
+    display: inline-block;
+}
+
 #buy:checked ~ .tab label:nth-child(1),
-#sell:checked ~ .tab label:nth-child(2) {
+#sell:checked ~ .tab label:nth-child(2),
+#order:checked ~ .tab label:nth-child(3) {
     background-color: #191970;
     color: aliceblue;
 }
@@ -230,12 +244,63 @@ a{
  }
 
 #buy:checked ~ .content div:nth-child(1),
-#sell:checked ~ .content div:nth-child(2) {
-    display: inline-block;
+#sell:checked ~ .content div:nth-child(2),
+#order:checked ~ .content div:nth-child(3) {
+    display: block;
+
 }
+
+#pendingOrder:checked ~  .pendingArea,
+#marketOrder:checked ~ .marketArea,
+#bookOrder:checked ~ .orderArea {
+    height: 250px;
+    display: block;
+
+}
+
+
+.pendingArea, .marketArea, .orderArea  {
+    display: none;
+}
+
 
 .tab{
     overflow: hidden;
+}
+
+.orderType{
+    font-weight: bold;
+    margin-right: 100px;
+}
+
+.orderMenu{
+    font-weight: bold;
+    float: left;
+}
+
+.inputValue{
+    width: 200px;
+    height: 30px;
+    float: right;
+}
+
+.orderCondition {
+    text-align: right;
+    font-size: 15px;
+    color: darkgray;
+}
+
+.content-dis button{
+    background-color: #191970;
+    color: aliceblue;
+    border: 0;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 15px;
+    font-family: 'Gowun Dodum';
+    margin-left: 10px;
+
 }
 
 /* 내정보 + 현재가 리스트 css */
@@ -268,7 +333,7 @@ a{
     text-align: left;
 }
 
-.myName div{
+.myName span{
     font-size: 20px;
     color: darkgrey;
 }
@@ -307,7 +372,7 @@ a{
 /* 사용자 체결 미체결 css */
 
 .showC{
-    width:82%;
+    width:1800px;
     height: 600px;
     margin: 0 auto;
     margin-top: 5px;
@@ -346,18 +411,15 @@ a{
     padding: 15px 0;
     font-weight: bold;
     letter-spacing: 2px;
-    user-select: none;
-    -webkit-user-select: none;
 }
 
 .content {
   background-color: aliceblue;
   border: 5px solid #191970;
-  min-height: 500px;
+  min-height: 550px;
 }
-.content  div{
+.content div{
    padding: 30px;
-   line-height: 1.5;
    font-size: 20px;
 }
 

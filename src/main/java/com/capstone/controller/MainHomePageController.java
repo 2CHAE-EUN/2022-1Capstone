@@ -2,6 +2,7 @@ package com.capstone.controller;
 
 import com.capstone.DTO.AssetDTO;
 import com.capstone.DTO.UserDTO;
+import com.capstone.Service.SelectService;
 import com.capstone.Service.UserService;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,9 @@ public class MainHomePageController {
     UserService userService;
 
     @Autowired
+    SelectService selectService;
+
+    @Autowired
     SqlSession sqlSession;
 
     @GetMapping("/MainHomePage")
@@ -29,7 +33,8 @@ public class MainHomePageController {
         model.addAttribute("username", userDTO.getUserName());
         model.addAttribute("useremail", userDTO.getUserEmail());
         model.addAttribute("userseed", assetDTO.getUserSeed() );
-        System.out.println(assetDTO.getUserSeed());
+
+        System.out.println(userDTO.getNum());
 
 //        SelectMapper selectMapper = sqlSession.getMapper(SelectMapper.class);
 //        SelectDTO list = selectMapper.select();

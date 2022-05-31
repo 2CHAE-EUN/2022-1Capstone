@@ -1,23 +1,18 @@
 
-#chart1 {
-  max-width: auto;
-  margin: 10px;
-}
-
-#chart2 {
-  max-width: auto;
-  margin: 10px;
-}
 
 #jb-container {
   width: 1000px;
   margin: 10px auto;
-  padding: 20px;
+  padding: 0px;
+  background-color:whitesmoke;
   border: 1px solid #bcbcbc;
 }
+
 #jb-header {
   padding: 20px;
-  margin-bottom: 20px;
+  margin: 10px;
+  margin-bottom: 5px;
+  background-color: white;
   border: 1px solid #bcbcbc;
 }
 

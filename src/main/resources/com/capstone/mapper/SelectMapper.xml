@@ -22,8 +22,8 @@
 <!--        select * from coinuser;-->
 <!--    </select>-->
 
-    <select id="getWalletList" resultType="WalletDTO" parameterType="com.capstone.DTO.UserDTO">
+    <select id="getWalletList" resultType="com.capstone.DTO.WalletDTO" parameterType="Integer">
         select * from wallet
-        where num = #{num}
+        where wallet.num = #{num}
     </select>
 </mapper>
