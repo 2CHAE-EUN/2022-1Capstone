@@ -1,5 +1,10 @@
 package com.capstone.DTO;
 
+import lombok.Data;
+import org.springframework.stereotype.Component;
+
+@Data
+@Component
 public class WalletDTO {
 
     private int num;
@@ -10,6 +15,19 @@ public class WalletDTO {
     private int resultPrice;
     private int resultPL;
     private double profitRate;
+
+    public WalletDTO(){}
+
+    public WalletDTO(int num, String coinCode, int coinCount, int averageBuyPrice, int buyPrice, int resultPrice, int resultPL, double profitRate) {
+        this.num = num;
+        this.coinCode = coinCode;
+        this.coinCount = coinCount;
+        this.averageBuyPrice = averageBuyPrice;
+        this.buyPrice = buyPrice;
+        this.resultPrice = resultPrice;
+        this.resultPL = resultPL;
+        this.profitRate = profitRate;
+    }
 
     public int getNum() {
         return num;

@@ -5,7 +5,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
     </style>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Coin Mock Invester</title>
     <link rel="stylesheet" th:href="@{/CSS/Login.css}">
 </head>
 <body>
@@ -27,6 +27,7 @@
             <input type="submit" value="로그인" class="submitBtn">
 
         </form>
+        <div class="loginError" th:text="${msg}"></div>
     </div>
     <div>
         <nav>

@@ -25,9 +25,10 @@ public class SpringBootSecurityConfiguration extends WebSecurityConfigurerAdapte
         http
                 .csrf().disable() // csrf().disable() : 사이트간 요청 위조 공격 방지 기능 켜기
                 .authorizeRequests() // 요청에 의한 보안 검사 시작
-                .antMatchers("/", "/SignUpForm").permitAll()
+                .antMatchers("/", "/SignUpForm", "/market","/Delete").permitAll()
                 .antMatchers("/MainHomePage").hasRole("USER") // 권한이 있기만 하다면 접근 가능
                 .antMatchers("/Investment").hasRole("USER")
+                .antMatchers("/UserData").hasRole("USER")
                 .and()
                 .httpBasic().disable()
                 .formLogin()

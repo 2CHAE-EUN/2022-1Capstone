@@ -31,11 +31,40 @@
 
     <!--회원가입 중복-->
     <!--중복이면 1리턴, 중복이 아니면 0리턴-->
-    <select id="emailCheck" parameterType="String" resultType="int">
-        SELECT COUNT(*) FROM COINUSER WHERE userEmail = #{userEmail};
+    <select id="emailCheck" resultType="int">
+        SELECT COUNT(userEmail) FROM COINUSER
+        WHERE userEmail = #{userEmail};
     </select>
 
+    <!--회원 탈퇴하기-->
+    <delete id="deleteMember">
+        DELETE FROM COINUSER
+        WHERE num = #{num};
+    </delete>
 
+    <!--비밀번호 일치확인-->
+    <select id="selectPassword" resultType="String">
+        SELECT userPassword FROM COINUSER
+        WHERE num = #{num};
+    </select>
 
+    <!--비밀번호 변경하기-->
+    <update id="updatePassword">
+        UPDATE COINUSER
+        SET userPassword = #{userPassword}
+        WHERE num = #{num}
+    </update>
 
+    <!--자간 테이블 초기화-->
+    <delete id="clearAsset">
+        DELETE FROM ASSET
+        WHERE num = #{num}
+    </delete>
+
+    <!--지갑 테이블 초기화-->
+    <delete id="clearWallet">
+        DELETE FROM WALLET
+        WHERE num = #{num}
+    </delete>
+    
 </mapper>

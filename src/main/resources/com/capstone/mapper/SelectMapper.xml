@@ -3,27 +3,19 @@
 
 <mapper namespace="com.capstone.mapper.SelectMapper">
 
-<!--    <resultMap id="UserMap" type="com.capstone.DTO.UserDTO">-->
-<!--        <id property="num" column="num"/>-->
-<!--        <result property="userEmail" column="userEmail"/>-->
-<!--        <result property="userPassword" column="userPassword"/>-->
-<!--        <result property="userName" column="userName"/>-->
-<!--        <result property="userBirth" column="userBirth"/>-->
-<!--        <result property="userSignUpDate" column="userSignUpDate"/>-->
-<!--        <result property="userAuth" column="userAuth"/>-->
-<!--        <collection property="assetList" column="userSeed" select="selectMyAsset"/>-->
-<!--    </resultMap>-->
-
-<!--    <select id="selectMyAsset" resultType="string">-->
-<!--        select userSeed from asset where num = #{num}-->
-<!--    </select>-->
-
-<!--    <select id="selectAsset" resultMap="UserMap">-->
-<!--        select * from coinuser;-->
-<!--    </select>-->
-
-    <select id="getWalletList" resultType="com.capstone.DTO.WalletDTO" parameterType="Integer">
-        select * from wallet
-        where wallet.num = #{num}
+    <select id="getWalletList" resultType="WalletDTO">
+        SELECT * FROM wallet
+        WHERE num = #{num};
     </select>
+
+    <select id="getAssetList" resultType="AssetDTO">
+        SELECT * FROM asset
+        WHERE num = #{num};
+    </select>
+
+    <select id="validSeed" resultType="int">
+        SELECT userSeed FROM asset
+        WHERE num = #{num};
+    </select>
+
 </mapper>

@@ -17,7 +17,17 @@ public class AssetDTO {
     private int totalValuePL;
     private double totalValueRate;
 
-    private UserDTO userDTO;
+    public AssetDTO(){}
+
+    public AssetDTO(int num, int userSeed, int userTotalSeed, int totalBuyPrice, int totalValuePrice, int totalValuePL, double totalValueRate) {
+        this.num = num;
+        this.userSeed = userSeed;
+        this.userTotalSeed = userTotalSeed;
+        this.totalBuyPrice = totalBuyPrice;
+        this.totalValuePrice = totalValuePrice;
+        this.totalValuePL = totalValuePL;
+        this.totalValueRate = totalValueRate;
+    }
 
     public int getNum() {
         return num;

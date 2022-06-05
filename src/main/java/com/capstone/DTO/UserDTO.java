@@ -26,7 +26,22 @@ public class UserDTO implements UserDetails {
     private String userSignUpDate;
     private String userAuth;
 
-    private List<String> assetList;
+    public UserDTO(){}
+
+    public UserDTO(int num, String userEmail, String userPassword, String userName, String userBirYear, String userBirMonth, String userBirDay, String userBirth, String userGender, String userSignUpDate, String userAuth, List<String> assetList) {
+        this.num = num;
+        this.userEmail = userEmail;
+        this.userPassword = userPassword;
+        this.userName = userName;
+        this.userBirYear = userBirYear;
+        this.userBirMonth = userBirMonth;
+        this.userBirDay = userBirDay;
+        this.userBirth = userBirth;
+        this.userGender = userGender;
+        this.userSignUpDate = userSignUpDate;
+        this.userAuth = userAuth;
+
+    }
 
     public int getNum() {
         return num;

@@ -37,7 +37,6 @@ a{
     padding: 10px;
     margin-top: 20px;
     width: 60%;
-    border-radius: 5px;
 }
 
 .submitBtn{
@@ -68,4 +67,14 @@ a{
 
 .etc{
     font-family: 'Gowun Dodum';
+}
+
+.loginError{
+     color:red;
+     margin: 0 auto;
+     margin-top: 20px;
+     width: 400px;
+     font-size: 20px;
+     font-weight: bold;
+     text-align: center;
 }

@@ -77,11 +77,56 @@ function requestTrade(url, callback){
   httpRequestTrade.send();
 }
 
+// 이채은 - 마켓 코드를 조회해서 마켓 코드와 코인 한국 이름 비교하기
+
+function findKoreanName(element){
+
+    const nameRequest = new XMLHttpRequest();
+    const nameUrl = 'https://api.upbit.com/v1/market/all?isDetails=true';
+
+    nameRequest.open("GET", nameUrl, false);
+    nameRequest.send();
+
+    var obj = JSON.parse(nameRequest.responseText);
+
+    var codeArray = new Array(); // 코드 번호만 저장되는 배열
+    var nameArray = new Array(); // 코드 이름만 저장되는 배열
+
+    var i;
+    for( i = 0; i < obj.length; i++){
+    // 한국에서 유통되는 코인만 가져오기
+        if( obj[i].market.slice(0,3) == "KRW" ){
+           codeArray.push(obj[i].market);
+           nameArray.push(obj[i].korean_name);
+        }
+    }
+
+    if( codeArray.includes(element)) {
+        var index  = codeArray.indexOf(element)
+        var korean_name = nameArray[index];
+
+        // 코인의 길이가 길 경우 처리
+        if( korean_name.length > 9 ){
+            document.getElementById("marketName").style.fontSize = "25px";
+        }
+        else{
+            document.getElementById("marketName").style.fontSize = "30px";
+        }
+
+        return korean_name;
+    }
+
+}
+
+
+
+
 /* tickerUpdate(response) -> void
  *   ::=  request(url, callback) 함수에 주어지는 콜백함수입니다.
  *        응답받은 데이터를 기반으로 종목요약정보를 표시하는 DOM객체를 갱신합니다.
  */
 function tickerUpdate (result){
+
   var json = JSON.parse(result)[0];
 
   var color = "black"
@@ -90,16 +135,26 @@ function tickerUpdate (result){
   else if(json.change == "RISE")
     color = "red";
 
-  document.getElementById("marketName").innerText = json.market;
-    document.getElementById("tradePrice").innerText = json.trade_price;
-    document.getElementById("highPrice").innerText = json.high_price;
-    document.getElementById("lowPrice").innerText = json.low_price;
+//   document.getElementById("marketName").innerText = json.market;
+   document.getElementById("marketName").innerText = findKoreanName(json.market);
+   document.getElementById("tradePrice").innerText = json.trade_price + " KRW";
+   document.getElementById("highPrice").innerText = json.high_price;
+   document.getElementById("lowPrice").innerText = json.low_price;
 
-  document.getElementById("changePrice").innerText = json.signed_change_price;
-  document.getElementById("changePrice").style.color = color;
+   // 이채은 - 표기 추가
+
+   if( json.signed_change_price >= 0 ){
+       document.getElementById("changePrice").innerText = "▲ " + json.signed_change_price;
+       document.getElementById("changePrice").style.color = color;
+   }
+   else{
+       document.getElementById("changePrice").innerText = "▼ " + json.signed_change_price;
+       document.getElementById("changePrice").style.color = color;
+   }
+
 
   document.getElementById("changeRate").innerText = (parseFloat(json.signed_change_rate) * 100).toPrecision(2) + "%";
-  document.getElementById("changeRate").style.color = color
+  document.getElementById("changeRate").style.color = color;
 
   document.getElementById("accTradeVolume_24H").innerText = (json.acc_trade_volume_24h).toPrecision(7);
   document.getElementById("accTradeRate_24H").innerText = Math.round(json.acc_trade_price_24h);

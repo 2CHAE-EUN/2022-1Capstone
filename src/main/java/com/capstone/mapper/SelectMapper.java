@@ -10,8 +10,13 @@ import java.util.List;
 public interface SelectMapper {
 
     //자산 목록 조회
-
+    public List<AssetDTO> getAssetList(int number);
 
     //지갑 목록 조회
-    public List<WalletDTO> getWalletList();
+    public List<WalletDTO> getWalletList(int number);
+
+    //시드 조회
+    public int validSeed(int number);
+
+
 }

@@ -18,13 +18,19 @@ body{
     padding: 0 70px;
     box-sizing: border-box;
     z-index: 1;
-    background-color: aliceblue;
+    color : aliceblue;
+    background-color: #191970;
 }
 
+.menuheader h1{
+    min-width: 500px;
+}
+
+
 .coinmenudetail {
-    width: 100px;
+    width: 80px;
     display: inline-block;
-    color: #191970;
+    color: aliceblue;
     font-size: 20px;
     font-weight: bold;
     line-height: 85px;
@@ -33,11 +39,13 @@ body{
 }
 
 .coinmenu{
-    width: 60%;
+    min-width: 60%;
+    color: aliceblue;
 }
 
 
 .mymenu{
+
     display: flex;
     list-style: none;
 
@@ -48,7 +56,7 @@ body{
     font-size: 20px;
     font-weight: bold;
     line-height: 85px;
-    color: #191970;
+    color: aliceblue;
     height: 100%;
     width: 140px;
 }
@@ -58,8 +66,8 @@ a{
 }
 
 .myInvestment{
-    width: 70%;
-    height: 1500px;
+    width: 2000px;
+    height: 1000px;
     margin: 0 auto;
     padding-top: 150px;
     display: flex;
@@ -67,28 +75,80 @@ a{
 }
 
 .myAsset{
-
     font-size: 20px;
-    width: 80%;
-    height: 17%;
+    width: 900px;
+    height: 250px;
     padding: 40px;
-    padding-left: 10%;
-    border: 5px solid green;
+    width: 920px;
+    border-bottom: 5px #191970 solid;
 }
 
 
 .total{
-    width: 70%;
-    height: 100%;
+    width: 1000px;
+    height: 1000px;
     display: inline-block;
-    border: 5px solid darkcyan;
+    border: 5px solid #191970;
 }
 
 .coinlist{
     display: inline-block;
-    width: 38%;
-    height: 100%;
-    border: 5px solid green;
+    width: 550px;
+    height: 1000px;
+    border: 5px solid #191970;
+    font-size : 15px;
+
+}
+
+.coinlistThead{
+    width : 550px;
+}
+
+.coinlistThead th{
+    border-bottom: 3px solid darkgray;
+    font-size: 15px;
+    padding: 15px;
+}
+
+.coinlistTbody table{
+    width: 520px;
+}
+
+.coinlistThead th:nth-of-type(1){
+    width: 90px;
+}
+
+.coinlistThead th:nth-of-type(2){
+    width: 60px;
+}
+
+.coinlistThead th:nth-of-type(3){
+    width: 55px;
+}
+
+.coinlistThead th:nth-of-type(4){
+    width: 50px;
+}
+
+
+
+.coinlistTbody{
+    width: 550px;
+    height: 910px;
+    overflow-y: scroll;
+}
+
+.coinlistTbody td{
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    border-bottom: 1px solid darkgray;
+    padding: 15px;
+}
+
+.coinlistTbody span{
+    font-size: 15px;
+    color: grey;
 }
 
 .totalTradeAmount{
@@ -107,20 +167,18 @@ a{
 }
 
 .myAsset dl dt{
-    border: 5px solid darkmagenta;
     width: 200px;
 }
 
 .myAsset dl dd{
     display: table-cell;
-    border: 5px solid darkgreen;
-    width: 100px;
+    width: 200px;
     text-align: right;
     font-weight: bold;
 }
 
 .myAssetList{
-    width: 100%;
+    width: 1000px;
     min-height: 600px;
 }
 
@@ -136,6 +194,13 @@ a{
     padding: 10px 0;
     border-bottom: 1px solid #191970;
     font-weight: bold;
+}
+
+.content td {
+    text-align :center;
+    font-weight: bold;
+    font-size: 15px;
+    padding : 5px;
 }
 
 .myAssetListText{

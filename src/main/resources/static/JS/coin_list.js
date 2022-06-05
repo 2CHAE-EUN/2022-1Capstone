@@ -1,3 +1,5 @@
+// 이채은 - 현재가 조회 리스트
+
 var socket; // 소켓
 
 // 웹소켓 연결
@@ -148,6 +150,7 @@ function connectWS() {
 //	      	tr.appendChild(td3);
 //
 //			table.prepend(tr);
+
 		}
 	}
 }

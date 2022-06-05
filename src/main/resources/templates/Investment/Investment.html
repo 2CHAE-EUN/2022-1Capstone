@@ -2,11 +2,18 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Coin Mock Invester</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=0.75">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
     </style>
     <link rel="stylesheet" th:href="@{/CSS/Investment.css}">
+    <script th:inline="javascript" th:src="@{/JS/coin_list.js}"></script>
+    <script th:inline="javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+    <script>
+        window.onload() = function(){
+            window.resizeTO(1920,1080);
+        }
+    </script>
 </head>
 <body>
 
@@ -17,60 +24,54 @@
         <a href="/Investment" class="coinmenudetail">투자내역</a>
     </nav>
     <ul class="mymenu">
-        <li><a href="/" class="menudetail">MY</a></li>
+        <li><a href="/UserData" class="menudetail">MY</a></li>
         <li><a href="/Logout" class="menudetail">LOGOUT</a></li>
     </ul>
 </header>
 
 
 <div class="myInvestment">
-    <div class="total">
-        <div class="myAsset"  >
-            <dl class="totalTradeAmount">
+    <div class="total" th:each="a : ${asset}">
+        <div class="myAsset" >
+            <dl class="totalTradeAmount" th:each="a : ${asset}">
                 <dt>보유 시드</dt>
                 <dd>
-                        <span >
-
+                        <span th:text="${a.userSeed} + '  KRW'" >
                         </span>
                 </dd>
             </dl>
             <dl class="totalTradeAmount">
                 <dt>총 보유 자산</dt>
                 <dd>
-                        <span >
-
+                        <span th:text="${a.userTotalSeed} + '  KRW'">
                         </span>
                 </dd>
             </dl>
             <dl class="tradeAmount">
                 <dt>총 매수 금액</dt>
                 <dd>
-                        <span >
-
+                        <span th:text="${a.totalBuyPrice} + '  KRW' ">
                         </span>
                 </dd>
             </dl>
             <dl class="tradeAmount">
                 <dt>총 평가 손익</dt>
                 <dd>
-                        <span>
-
+                        <span th:text="${a.totalValuePL} + '  KRW'">
                         </span>
                 </dd>
             </dl>
             <dl class="tradeAmount">
                 <dt>총 평가 금액</dt>
                 <dd>
-                        <span >
-
+                        <span th:text="${a.totalValuePrice} + '  KRW'">
                         </span>
                 </dd>
             </dl>
             <dl class="tradeAmount">
                 <dt>총 평가 수익률</dt>
                 <dd>
-                        <span>
-
+                        <span th:text="${a.totalValuePrice} + '  %'">
                         </span>
                 </dd>
             </dl>
@@ -90,24 +91,146 @@
                     <th>평가수익률</th>
                     </thead>
                     <tbody>
-                    <tr th:each="b : ${wallet}">
-                        <td th:text="${b.coinCode}"></td>
-                        <td th:text="${b.coinCount}"></td>
-                        <td th:text="${b.averageBuyPrice}"></td>
-                        <td th:text="${b.buyPrice}"></td>
-                        <td th:text="${b.resultPrice}"></td>
-                        <td th:text="${b.resultPL}"></td>
-                        <td th:text="${b.profitRate}"></td>
+                    <tr th:each="w : ${wallet}">
+                        <td th:text="${w.coinCode}"></td>
+                        <td th:text="${w.coinCount}"></td>
+                        <td th:text="${w.averageBuyPrice}"></td>
+                        <td th:text="${w.buyPrice}"></td>
+                        <td th:text="${w.resultPrice}"></td>
+                        <td th:text="${w.resultPL}"></td>
+                        <td th:text="${w.profitRate}"></td>
                     </tr>
                     </tbody>
                 </table>
             </div>
-
         </div>
     </div>
 
     <div class="coinlist">
-
+        <div>
+            <table class="coinlistThead">
+                <thead>
+                    <tr>
+                        <th>종목</th>
+                        <th>현재가</th>
+                        <th>전일대비</th>
+                        <th>전일대비 값</th>
+                        <th>거래대금</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        <div class="coinlistTbody">
+            <table class="coinlistTable">
+                <tbody id="output">
+                    <tr id="KRW-BTC">
+                        <td>비트코인<br><span>BTC/KRW</span></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr id="KRW-ETH">
+                        <td>이더리움<br><span>ETH/KRW</span></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr id="KRW-XRP">
+                        <td>리플<br><span>XRP/KRW</span></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr id="KRW-SOL">
+                        <td>솔라나<br><span>SOL/KRW</span></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr id="KRW-DOGE">
+                        <td>도지코인<br><span>DOGE/KRW</span></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr id="KRW-WEMIX">
+                        <td>위믹스<br><span>WEMIX/KRW</span></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr id="KRW-REP">
+                        <td>어거<br><span>REP/KRW</span></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr id="KRW-STRK">
+                        <td>스트라이크<br><span>STRK/KRW</span></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr id="KRW-SAND">
+                        <td>샌드박스<br><span>SAND/KRW</span></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr id="KRW-RFR">
+                        <td>리퍼리움<br><span>RFR/KRW</span></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr id="KRW-WAVES">
+                        <td>웨이브<br><span>WAVES/KRW</span></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr id="KRW-TRX">
+                        <td>트론<br><span>TRX/KRW</span></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr id="KRW-STX">
+                        <td>스택스<br><span>STX/KRW</span></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr id="KRW-META">
+                        <td>메타디움<br><span>META/KRW</span></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr id="KRW-ADA">
+                        <td>에이다<br><span>ADA/KRW</span></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 
 </div>

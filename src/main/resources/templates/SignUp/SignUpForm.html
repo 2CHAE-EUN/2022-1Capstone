@@ -7,6 +7,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
     </style>
     <link rel="stylesheet" th:href="@{/CSS/SignUpForm.css}">
+    <script th:inline="javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
 </head>
 <body>
 <div class="name">
@@ -62,7 +63,7 @@
                 </h3>
                 <div class="bir_box">
                     <div class="bir_year">
-                        <input type="text" id="yy" placeholder="년(4자)" name="userBirYear" class="bir_input">
+                        <input type="number" id="yy" placeholder="년(4자)" name="userBirYear" class="bir_input">
                     </div>
                     <div class="bir_month">
                         <select id="mm" class="bir_input" name="userBirMonth">
@@ -83,7 +84,7 @@
                     </div>
                     <div class="bir_day">
                         <label for="dd"></label>
-                        <input type="text" id="dd" placeholder="일" name="userBirDay" class="bir_input">
+                        <input type="number" id="dd" placeholder="일" name="userBirDay" class="bir_input">
                     </div>
                 </div>
             </div>

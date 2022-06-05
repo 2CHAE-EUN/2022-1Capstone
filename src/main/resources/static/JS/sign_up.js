@@ -1,3 +1,33 @@
+// 이채은 - 회원 가입 테스트
+function emailTest(){
+    var email = document.getElementById("userEmail").value;
+    console.log(email);
+    console.log(typeof(email));
+
+    var checkIndex = false;
+
+    $.ajax({
+        type : 'POST',
+        url : "/emailCheck",
+        data: { userEmail : email },
+        async:false,
+        charset: "utf-8",
+        success: function(cnt){
+            if( cnt == 0 ){
+                document.getElementById("duplicate").innerHTML = "사용 가능한 이메일 입니다.";
+                document.getElementById("duplicate").style.color = "blue";
+                checkIndex = true;
+            }
+            else{
+                document.getElementById("duplicate").innerHTML = "이미 사용 중인 이메일 입니다.";
+                document.getElementById("duplicate").style.color = "red";
+            }
+        }
+    })
+    return checkIndex;
+
+}
+
 function passwordTest(){
 
 	var p1 = document.getElementById("userPassword").value;
@@ -35,12 +65,16 @@ function doAction(){
     		return false;
     }
 
-	if( passwordTest() == true ){
+	if( emailTest() == true && passwordTest() == true ){
             return true;
 	}
 	else if( passwordTest() == false ){
 		alert("비밀번호를 확인해주세요.")
 		return false;
+	}
+	else if( emailTest() == false ){
+	    alert("이메일을 확인해주세요.")
+	    return false;
 	}
 
 }
