@@ -13,7 +13,7 @@ function connectWS() {
 
 	socket.onopen 	= function(e){
 
-		filterRequest('[{"ticket":"UNIQUE_TICKET"},{"type":"ticker","codes":["KRW-BTC","KRW-ETH","KRW-XRP","KRW-SOL","KRW-DOGE","KRW-WEMIX", "KRW-REP", "KRW-REP", "KRW-STRK", "KRW-SAND", "KRW-RFR", "KRW-WAVES", "KRW-TRX", "KRW-STX", "KRW-META", "KRW-ADA"]},{"type":"trade","codes":["KRW-BTC"]}]');
+		filterRequest('[{"ticket":"UNIQUE_TICKET"},{"type":"ticker","codes":["KRW-BTC","KRW-ETH","KRW-XRP","KRW-SOL","KRW-DOGE","KRW-WEMIX", "KRW-REP", "KRW-REP", "KRW-STRK", "KRW-SAND", "KRW-RFR", "KRW-WAVES", "KRW-TRX", "KRW-STX", "KRW-META", "KRW-ADA"]}]');
 
 	}
 

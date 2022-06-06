@@ -60,9 +60,10 @@ a{
     margin-top: 30px;
     padding-left: 0px;
     list-style: none;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+     /* display: flex;
+     align-items: center;
+     justify-content: space-between; */
+    font-weight: bold;
     width: 200px;
 }
 
