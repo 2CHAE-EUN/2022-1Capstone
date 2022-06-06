@@ -75,11 +75,18 @@ public class UserDataController {
         }
     }
 
-//    @PostMapping("/clearMyInfo")
-//    public String seedClear( @AuthenticationPrincipal UserDTO userDTO, AssetDTO assetDTO, WalletDTO walletDTO, Model model){
-//
-//
-//        return "/UserInfo/UserData";
-//    }
+
+    @PostMapping("/clearMyInfo")
+    public String seedClear( @AuthenticationPrincipal UserDTO userDTO, AssetDTO assetDTO, WalletDTO walletDTO, Model model){
+
+
+        walletDTO.setNum(userDTO.getNum());
+        assetDTO.setNum(userDTO.getNum());
+
+        userService.clearWallet(walletDTO);
+        userService.clearAsset(assetDTO);
+
+        return "redirect:/MainHomePage";
+    }
 
 }

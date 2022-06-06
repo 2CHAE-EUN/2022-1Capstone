@@ -3,6 +3,7 @@ body{
     margin: 0;
     padding: 0;
     height: 100%;
+    zoom : 0.75;
     font-family: 'Gowun Dodum';
 }
 
@@ -62,7 +63,7 @@ a{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 60%;
+    width: 200px;
 }
 
 .etc{

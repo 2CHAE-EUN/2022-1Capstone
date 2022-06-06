@@ -2,30 +2,30 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="ko">
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.75, maximum-scale=0.75" >
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
     </style>
-    <title>coin mock invester</title>
+    <title>CO:SI</title>
     <link rel="stylesheet" th:href="@{/CSS/MainHomePage.css}">
     <script th:inline="javascript" th:src="@{/JS/coin_list.js}"></script>
     <script th:inline="javascript" th:src="@{/JS/transaction.js}"></script>
 </head>
 <body>
 
-<header class="menuheader">
-    <h1>coin mock invester</h1>
-    <nav class="coinmenu">
-        <a href="/MainHomePage" class="coinmenudetail">거래소</a>
-        <a href="/Investment" class="coinmenudetail">투자내역</a>
-    </nav>
-    <ul class="mymenu">
-        <li><a href="/UserData" class="menudetail">MY</a></li>
-        <li><a href="/Logout" class="menudetail">LOGOUT</a></li>
-    </ul>
-</header>
 
-<div class="view">
+    <header class="menuheader">
+        <h1><a href="/MainHomePage">CO:SI</a></h1>
+        <nav class="coinmenu">
+            <a href="/MainHomePage" class="coinmenudetail">거래소</a>
+            <a href="/Investment" class="coinmenudetail">투자내역</a>
+        </nav>
+        <ul class="mymenu">
+            <li><a href="/UserData" class="menudetail">MY</a></li>
+            <li><a href="/Logout" class="menudetail">LOGOUT</a></li>
+        </ul>
+    </header>
+
+    <div class="view">
     <div class="allmenu">
 
         <div class="showA">

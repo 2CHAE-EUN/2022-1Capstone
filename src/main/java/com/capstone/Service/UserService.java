@@ -97,12 +97,34 @@ public class UserService implements UserDetailsService {
         userMapper.updatePassword(num, passwordEncoder.encode(userPassword));
     }
 
-    public void clearAsset(int num){
-        userMapper.clearAsset(num);
+    public void clearAsset(AssetDTO assetDTO){
+
+        walletMapper.clearAsset(assetDTO);
+
+        assetDTO.setUserSeed(1000);
+        assetDTO.setUserTotalSeed(0);
+        assetDTO.setUserTotalSeed(0);
+        assetDTO.setTotalValuePrice(0);
+        assetDTO.setTotalValuePL(0);
+        assetDTO.setTotalValueRate(0.0);
+
+        walletMapper.recreateAsset(assetDTO);
+
     }
 
-    public void clearWallet(int num){
-        userMapper.clearWallet(num);
+    public void clearWallet(WalletDTO walletDTO){
+
+        walletMapper.clearWallet(walletDTO);
+
+        walletDTO.setCoinCode("초기화 성공");
+        walletDTO.setCoinCount(0);
+        walletDTO.setAverageBuyPrice(0);
+        walletDTO.setBuyPrice(0);
+        walletDTO.setResultPrice(0);
+        walletDTO.setResultPL(0);
+        walletDTO.setProfitRate(0.0);
+
+        walletMapper.recreateWallet(walletDTO);
     }
 
 }

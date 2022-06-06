@@ -31,10 +31,6 @@ public interface UserMapper {
     //비밀 번호 변경하기
     public void updatePassword(int num, String userPassword);
 
-    //자산 초기화
-    public void clearAsset(int num);
 
-    ///지갑 초기화
-    public void clearWallet(int num);
 
 }

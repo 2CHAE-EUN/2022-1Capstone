@@ -53,7 +53,61 @@
         );
     </insert>
 
-    <!-- 자산 목록 조회하기 -->
+    <!--자산 테이블 초기화-->
+    <delete id="clearAsset">
+        DELETE FROM ASSET
+        WHERE num = #{num}
+    </delete>
 
+    <!--지갑 테이블 초기화-->
+    <delete id="clearWallet">
+        DELETE FROM WALLET
+        WHERE num = #{num}
+    </delete>
+
+    <!-- 자산 초기화 후 재생성하기 -->
+    <insert id="recreateAsset" parameterType="AssetDTO">
+        INSERT INTO asset (
+        num,
+        userSeed,
+        userTotalSeed,
+        totalBuyPrice,
+        totalValuePrice,
+        totalValuePL,
+        totalValueRate
+        )
+        VALUES (
+        #{num},
+        #{userSeed},
+        #{userTotalSeed},
+        #{totalBuyPrice},
+        #{totalValuePrice},
+        #{totalValuePL},
+        #{totalValueRate}
+        );
+    </insert>
+
+    <!-- 지갑 초기화 후 재생성하기 -->
+    <insert id="recreateWallet" parameterType="AssetDTO">
+        INSERT INTO wallet (
+        num,
+        coinCode,
+        coinCount,
+        averageBuyPrice,
+        buyPrice,
+        resultPrice,
+        resultPL,
+        profitRate)
+        VALUES (
+        #{num},
+        #{coinCode},
+        #{coinCount},
+        #{averageBuyPrice},
+        #{buyPrice},
+        #{resultPrice},
+        #{resultPL},
+        #{profitRate}
+        );
+    </insert>
 
 </mapper>
